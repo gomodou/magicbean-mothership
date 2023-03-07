@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.dockerhub.2.8.3.yaml
+    kompose.version: 1.28.0 (c4137012e)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: pipeline
+  name: pipeline
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: pipeline
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.dockerhub.2.8.3.yaml
+        kompose.version: 1.28.0 (c4137012e)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/magicbean-compose-pipeline-network: "true"
+        io.kompose.service: pipeline
+    spec:
+      containers:
+        - env:
+            - name: MAGICBEAN_VERSION
+              value: ${MAGICBEAN_VERSION}
+            - name: MODOU_HIVE_PASSWORD
+              value: ${MAGICBEAN_POSTGRES_PASSWORD}
+            - name: MODOU_HIVE_USER
+              value: ${MAGICBEAN_POSTGRES_USER}
+          image: magicbeaninc/magicbeaninc_pipeline:${MAGICBEAN_VERSION}
+          name: pipeline
+          resources: {}
+          volumeMounts:
+            - mountPath: /modou/workspace
+              name: pipeline-claim0
+      restartPolicy: Always
+      volumes:
+        - name: pipeline-claim0
+          persistentVolumeClaim:
+            claimName: pipeline-claim0
+status: {}
