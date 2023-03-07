@@ -33,7 +33,7 @@ spec:
               value: ${MAGICBEAN_POSTGRES_PASSWORD}
             - name: MODOU_HIVE_USER
               value: ${MAGICBEAN_POSTGRES_USER}
-          image: magicbeaninc/magicbeaninc_pipeline:${MAGICBEAN_VERSION}
+          image: magicbeaninc/magicbeaninc_pipeline:2.8.3
           name: pipeline
           resources: {}
           volumeMounts:

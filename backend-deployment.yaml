@@ -48,8 +48,11 @@ spec:
               value: ${OKTA_MB_SSO_OKTA_CLIENT_SECRET}
             - name: MB_SSO_OKTA_DOMAIN
               value: ${OKTA_MB_SSO_OKTA_DOMAIN}
-          image: magicbeaninc/magicbeaninc_backend:${MAGICBEAN_VERSION}
+          image: magicbeaninc/magicbeaninc_backend:2.8.3
           name: backend
+          envFrom:
+          - configMapRef:
+              name: prod-env-config 
           ports:
             - containerPort: 80
           resources: {}
