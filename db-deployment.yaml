@@ -31,16 +31,10 @@ spec:
             - -c
             - listen_addresses=*
           env:
-            - name: MAGICBEAN_VERSION
-              value: ${MAGICBEAN_VERSION}
             - name: PGDATA
               value: /var/lib/postgresql/data
             - name: POSTGRES_DB
               value: modou
-            - name: POSTGRES_PASSWORD
-              value: ${MAGICBEAN_POSTGRES_PASSWORD}
-            - name: POSTGRES_USER
-              value: ${MAGICBEAN_POSTGRES_USER}
           image: postgres:13.1
           name: db
           resources: {}
