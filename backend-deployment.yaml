@@ -26,35 +26,13 @@ spec:
     spec:
       containers:
         - env:
-            - name: MAGICBEAN_VERSION
-              value: ${MAGICBEAN_VERSION}
-            - name: MB_CORS_ALLOWED_ORIGINS
-              value: ${MB_CORS_ALLOWED_ORIGINS}
-            - name: MB_HIVE_THRIFT_PASSWORD
-              value: ${MAGICBEAN_POSTGRES_PASSWORD}
-            - name: MB_HIVE_THRIFT_USERNAME
-              value: ${MAGICBEAN_POSTGRES_USER}
-            - name: MB_INTERNET_URI
-              value: ${OKTA_MB_INTERNET_URI}
-            - name: MB_POSTGRES_PWD
-              value: ${MAGICBEAN_POSTGRES_PASSWORD}
-            - name: MB_POSTGRES_USER
-              value: ${MAGICBEAN_POSTGRES_USER}
-            - name: MB_SSO_OKTA_CLIENT_ID
-              value: ${OKTA_MB_SSO_OKTA_CLIENT_ID}
-            - name: MB_SSO_OKTA_CLIENT_NAME
-              value: ${OKTA_MB_SSO_OKTA_CLIENT_NAME}
-            - name: MB_SSO_OKTA_CLIENT_SECRET
-              value: ${OKTA_MB_SSO_OKTA_CLIENT_SECRET}
-            - name: MB_SSO_OKTA_DOMAIN
-              value: ${OKTA_MB_SSO_OKTA_DOMAIN}
           image: magicbeaninc/magicbeaninc_backend:2.8.3
           name: backend
           envFrom:
           - configMapRef:
               name: prod-env-config 
           ports:
-            - containerPort: 80
+            - containerPort: 9010
           resources: {}
       restartPolicy: Always
 status: {}
