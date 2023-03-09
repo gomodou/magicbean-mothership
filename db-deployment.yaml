@@ -35,6 +35,16 @@ spec:
               value: /var/lib/postgresql/data
             - name: POSTGRES_DB
               value: modou
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: prod-env-config
+                  key: MAGICBEAN_POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: prod-env-config
+                  key: MAGICBEAN_POSTGRES_PASSWORD
           image: postgres:13.1
           name: db
           resources: {}

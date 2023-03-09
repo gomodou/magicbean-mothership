@@ -13,4 +13,5 @@ data:
   OKTA_MB_SSO_OKTA_CLIENT_ID: ""
   OKTA_MB_SSO_OKTA_CLIENT_SECRET: ""
   OKTA_MB_SSO_OKTA_CLIENT_NAME: ""
-
+  MB_POSTGRES_URL: "jdbc:postgresql://db-svc:5432/modou"
+  MB_MQ_HOST: "rabbitmq-service"

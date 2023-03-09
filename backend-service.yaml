@@ -5,6 +5,7 @@ metadata:
     io.kompose.service: backend
   name: backend
 spec:
+  type: ClusterIP
   ports:
     - name: "9010"
       port: 9010

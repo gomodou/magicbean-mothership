@@ -16,9 +16,6 @@ spec:
   strategy: {}
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.dockerhub.2.8.3.yaml
-        kompose.version: 1.28.0 (c4137012e)
       creationTimestamp: null
       labels:
         io.kompose.network/magicbean-compose-pipeline-network: "true"
@@ -34,5 +31,6 @@ spec:
           ports:
             - containerPort: 9010
           resources: {}
-      restartPolicy: Always
+      # restartPolicy: Always
+      # restartPolicy: OnFailure
 status: {}
