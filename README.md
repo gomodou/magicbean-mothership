@@ -52,3 +52,5 @@ pvc:
 kubectl get pv 
 kubectl delete pv pvc-941777a1-b6e4-4cbf-b7ca-56e60d423f2c
 ```
+
+![arch](./docs/magicbean.ai.drawio.png)
