@@ -51,6 +51,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: db-claim0
+              subPath: postgres
       restartPolicy: Always
       volumes:
         - name: db-claim0
