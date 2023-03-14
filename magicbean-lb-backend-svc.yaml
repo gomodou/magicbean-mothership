@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: magicbean-lb-svc
+  labels:
+    io.kompose.network/magicbean-compose-pipeline-network: "true"
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    io.kompose.service: magicbean-backend

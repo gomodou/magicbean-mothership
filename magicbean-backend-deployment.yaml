@@ -1,36 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -f docker-compose.dockerhub.2.8.3.yaml
-    kompose.version: 1.28.0 (c4137012e)
-  creationTimestamp: null
   labels:
-    io.kompose.service: backend
-  name: backend
+    io.kompose.service: magicbean-backend
+  name: magicbean-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: backend
+      io.kompose.service: magicbean-backend
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
         io.kompose.network/magicbean-compose-pipeline-network: "true"
-        io.kompose.service: backend
+        io.kompose.service: magicbean-backend
     spec:
       containers:
         - env:
           image: magicbeaninc/magicbeaninc_backend:2.8.3
-          name: backend
+          name: magicbean-backend
           envFrom:
           - configMapRef:
-              name: prod-env-config 
+              name: prod-env-config
           ports:
-            - containerPort: 9010
+            - containerPort: 80
           resources: {}
-      # restartPolicy: Always
-      # restartPolicy: OnFailure
+      restartPolicy: Always
 status: {}
